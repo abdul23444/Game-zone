@@ -21,7 +21,7 @@ function updateTimer() {
     if (getDate && getHours && getMinutes && getSeconds) {
         getDate.innerText = days
         getHours.innerText = hours
-        getMinutes.innerText = minutes
+        getMinutes.innerText = minutes    
         getSeconds.innerText = seconds
 
     }
@@ -149,7 +149,7 @@ document.addEventListener('click', (e) => {
 
 
         let lengthC = []
-        for (let i = 0; i < JSON.parse(localStorage.getItem("cartProducts")).length; i++) {
+               for (let i = 0; i < (JSON.parse(localStorage.getItem("cartProducts"))?JSON.parse(localStorage.getItem("cartProducts")).length:0); i++) {
             let a = JSON.parse(localStorage.getItem("cartProducts"));
             lengthC.push(a[i].product.product_id)
         }
@@ -531,5 +531,6 @@ const totalItemsRate1 = () => {
     document.querySelector("#orderTotal").innerHTML = `$${totalAmount + (totalAmount===0 ? 0: Number(document.querySelector("#shipping-charge").innerHTML.slice(1)))}` 
 }
 totalItemsRate1()
+
 
 
