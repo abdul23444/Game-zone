@@ -85,7 +85,7 @@ document.addEventListener('click', (e) => {
 
 
         let length = []
-        for (let i = 0; i < JSON.parse(localStorage.getItem("whishlistProducts")).length; i++) {
+        for (let i = 0; i < JSON.parse(localStorage.getItem("whishlistProducts")|| []).length; i++) {
             let a = JSON.parse(localStorage.getItem("whishlistProducts"));
             length.push(a[i].product.product_id)
         }
@@ -531,6 +531,7 @@ const totalItemsRate1 = () => {
     document.querySelector("#orderTotal").innerHTML = `$${totalAmount + (totalAmount===0 ? 0: Number(document.querySelector("#shipping-charge").innerHTML.slice(1)))}` 
 }
 totalItemsRate1()
+
 
 
 
